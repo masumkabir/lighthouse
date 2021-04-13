@@ -19,4 +19,4 @@ phases:
       - zip -qr build-output.zip ./*
       - pwd
       - ls -al
-      - "aws s3 cp --recursive build-output.zip s3://test-lighthouse/"
+      - "aws s3 cp build-output.zip s3://test-lighthouse/"
