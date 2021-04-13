@@ -19,5 +19,5 @@ phases:
       - zip -qr build-output.zip ./*
       - pwd
       - ls -al
-      - "aws s3 cp build-output.zip s3://test-lighthouse/"
-      - "aws lambda update-function-code --function-name lighthouse --s3-bucket test-lighthouse --s3-key build-output.zip"
+      - "aws s3 cp build-output.zip s3://lighthouse-lambda-test/"
+      - "aws lambda update-function-code --function-name lighthouse-lambda --s3-bucket lighthouse-lambda-test --s3-key build-output.zip"
