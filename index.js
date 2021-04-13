@@ -72,6 +72,7 @@ async function runLighthouse(req) {
     rtn['total-score'] = rtn['total-score'] / Object.keys(runnerResult.lhr.categories).length;
 
     console.timeEnd('Lighthouse-' + url);
+    console.log('Lighthouse result end');
     return rtn;
 }
 
