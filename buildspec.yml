@@ -1,0 +1,22 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10  
+  pre_build:
+    commands:
+    - echo Installing all the dependencies
+    - yum install zip -y
+    - npm install 
+  build:
+    commands:
+      - echo Building lighthouse project
+  post_build:
+    commands:
+      - mkdir build-output
+      - cp -R index.js node_modules package.* buildspec.yml README.md build-output
+      - cd build-output/
+      - zip -qr build-output.zip ./*
+      - pwd
+      - ls -al
+      - "aws s3 cp --recursive build-output.zip s3://test-lighthouse/"
